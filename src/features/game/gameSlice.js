@@ -13,6 +13,8 @@ export const gameSlice = createSlice({
         luck: 1,
         items: [],
         specialist: "none",
+        backpackOn: false,
+        backpackContents: {},
         xCoordinate: 0,
         yCoordinate: 0
     },
@@ -28,9 +30,12 @@ export const gameSlice = createSlice({
         },
         travelWest: (state) => {
             state.xCoordinate -= 1
+        },
+        openBackpack: (state) => {
+            state.backpackOn = !state.backpackOn
         }
     }
 });
 
-export const {travelNorth, travelEast, travelSouth, travelWest} = gameSlice.actions
+export const {travelNorth, travelEast, travelSouth, travelWest, openBackpack} = gameSlice.actions
 export default gameSlice.reducer
